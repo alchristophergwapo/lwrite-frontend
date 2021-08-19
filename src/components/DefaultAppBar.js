@@ -14,6 +14,10 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
+import { ListItemIcon, ListItemText } from "@material-ui/core";
+import CustomIcon from "./CustomIcon";
+import { AccountCircleSharp, ExitToApp } from "@material-ui/icons";
+import Text from "./Text";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -129,8 +133,18 @@ export default (props) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() =>navigate("/user/profile")}>Profile</MenuItem>
-      <MenuItem onClick={logout}>Logout</MenuItem>
+      <MenuItem onClick={() =>navigate("/user/profile")}>
+        <ListItemIcon>
+          <CustomIcon rg icon={AccountCircleSharp} />
+        </ListItemIcon>
+        <ListItemText primary={<Text text={"Profile"} />} />
+      </MenuItem>
+      <MenuItem onClick={logout}>
+      <ListItemIcon>
+          <CustomIcon rg icon={ExitToApp} />
+        </ListItemIcon>
+        <ListItemText primary={<Text text={"Logout"} />}  />
+      </MenuItem>
     </Menu>
   );
 
@@ -177,7 +191,7 @@ export default (props) => {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
           <Typography className={classes.title} variant="h4" noWrap>
             LWrite
@@ -195,16 +209,19 @@ export default (props) => {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
+          <div>
+
+          </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="secondary">
-                <MailIcon />
+                <CustomIcon rg icon={MailIcon} />
               </Badge>
             </IconButton>
             <IconButton aria-label="show 17 new notifications" color="inherit">
               <Badge badgeContent={17} color="secondary">
-                <NotificationsIcon />
+                <CustomIcon rg icon={NotificationsIcon} />
               </Badge>
             </IconButton>
             <IconButton
@@ -215,7 +232,7 @@ export default (props) => {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <AccountCircle />
+              <CustomIcon rg icon={AccountCircle} />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>

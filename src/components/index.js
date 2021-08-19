@@ -10,8 +10,12 @@ import DefaultAppBar from "./DefaultAppBar";
 import Image from "./Image";
 import DefaultProfileCard from "./DefaultProfileCard";
 import CustomButton from "./CustomButton";
+import PostCard from "./PostCard";
+import Input from "./Input";
+import CreatePostCard from "./CreatePostCard";
 
 export {
+  CreatePostCard,
   CustomAppBar,
   CustomAvatar,
   CustomButton,
@@ -22,6 +26,8 @@ export {
   DefaultAppBar,
   DefaultProfileCard,
   Image,
+  Input,
+  PostCard,
   Spacer,
   Text,
 };

@@ -1,12 +1,19 @@
-import { CssBaseline } from "@material-ui/core";
+import { Container, CssBaseline, Grid, Paper } from "@material-ui/core";
 import { AddCircle } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import React, { useState } from "react";
-import { CustomIcon, CustomModal, Text } from "../../components";
+import {
+  CreatePostCard,
+  CustomIcon,
+  CustomModal,
+  PostCard,
+  Spacer,
+  Text,
+} from "../../components";
 import { Colors, Metrics } from "../../constants";
 
 export default (props) => {
-    let { navigation} = props;
+  let { navigation } = props;
   const [modalOpen, setModalOpen] = useState(false);
   const classes = useStyles();
 
@@ -30,9 +37,22 @@ export default (props) => {
         open={modalOpen}
         modalTitle="Create Post"
         closeModal={closeModal}
-      />
+      >
+        <CreatePostCard />
+      </CustomModal>
+      <Spacer xxl />
       <div>
-        <Text component="h1" text="Home" variant="h1" />
+        <Grid container spacing={3}>
+          <Grid item xs={3}></Grid>
+          <Grid item xs={5}>
+            <Container>
+              {[1, 2, 3, 4, 5].map((index) => {
+                return <PostCard key={index} />;
+              })}
+            </Container>
+          </Grid>
+          <Grid item xs={4}></Grid>
+        </Grid>
       </div>
     </div>
   );

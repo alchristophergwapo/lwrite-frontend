@@ -1,11 +1,21 @@
-import { Container, Dialog, makeStyles, Paper } from "@material-ui/core";
+import {
+  CardContent,
+  CardHeader,
+  Container,
+  Dialog,
+  Divider,
+  makeStyles,
+  Paper,
+} from "@material-ui/core";
 import { Close } from "@material-ui/icons";
 import React from "react";
 import { Text } from ".";
+import CustomAvatar from "./CustomAvatar";
 import CustomIcon from "./CustomIcon";
+import Input from "./Input";
 
 export default (props) => {
-  let { closeModal, modalTitle, open } = props;
+  let { closeModal, modalTitle, open, children } = props;
   const styles = useStyles();
 
   return (
@@ -13,10 +23,14 @@ export default (props) => {
       <Dialog fullWidth={true} maxWidth="md" open={open} onClose={closeModal}>
         <div className={styles.modal}>
           <div className={styles.flexRow}>
-            <div style={{width: '90%'}}>
-                <Text text={modalTitle} variant="h4" component="h3" center />
+            <div style={{ width: "90%" }}>
+              <Text text={modalTitle} variant="h4" component="h3" center />
             </div>
-            <CustomIcon icon={Close} onClick={closeModal} />
+            <CustomIcon rg icon={Close} onClick={closeModal} />
+          </div>
+          <Divider />
+          <div>
+            {children}
           </div>
         </div>
       </Dialog>
@@ -31,6 +45,6 @@ const useStyles = makeStyles((theme) => ({
   flexRow: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
   },
 }));

@@ -18,7 +18,7 @@ import {
 import NavigationAction from "../../navigation/NavigationAction";
 import { loginUser } from "../../utils/user";
 import { CustomAvatar, CustomDialog, Spacer } from "../../components";
-import { Metrics } from "../../constants";
+import { Colors, Metrics } from "../../constants";
 
 export default function (props) {
   let { navigation } = props;
@@ -35,10 +35,10 @@ export default function (props) {
         password: password,
       };
       let res = await loginUser(details);
-      console.log(res.data);
       sessionStorage.setItem("session", res.data);
       navigation.push("/home");
     } catch (error) {
+      console.log(error);
       setModalTitle("Oops!");
       error.response
         ? setModalContent(error.response.data.error)
@@ -66,7 +66,13 @@ export default function (props) {
       />
       <Paper elevation={3}>
         <div style={styles.paper}>
-          <CustomAvatar isIcon={true} icon={AccountCircle} lg  iconSize={50}/>
+          <CustomAvatar
+            isIcon={true}
+            icon={AccountCircle}
+            lg
+            iconSize={90}
+            iconColor={Colors.primary}
+          />
           <Spacer sm />
           <Typography component="h1" variant="h4">
             Login

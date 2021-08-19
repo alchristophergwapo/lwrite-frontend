@@ -19,7 +19,7 @@ export default (props) => {
       : xxl
       ? Metrics.icon.xxl
       : Metrics.icon.xs,
-    color: color ? color : Colors.darkGray,
+    color: color ? color : 'primary',
   };
 
   return (

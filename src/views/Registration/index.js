@@ -21,8 +21,8 @@ import {
 } from "@material-ui/icons";
 import NavigationAction from "../../navigation/NavigationAction";
 import { createUser } from "../../utils/user";
-import { CustomDialog, Spacer } from "../../components";
-import { Metrics } from "../../constants";
+import { CustomAvatar, CustomDialog, Spacer } from "../../components";
+import { Colors, Metrics } from "../../constants";
 
 export default function (props) {
   let { navigation } = props;
@@ -85,9 +85,7 @@ export default function (props) {
       />
       <Paper elevation={3}>
         <div style={styles.paper}>
-          <Avatar style={styles.avatar}>
-            <AccountCircle />
-          </Avatar>
+          <CustomAvatar isIcon={true} icon={AccountCircle} lg iconSize={90} iconColor={Colors.primary} />
           <Spacer />
           <Typography component="h1" variant="h5">
             Register

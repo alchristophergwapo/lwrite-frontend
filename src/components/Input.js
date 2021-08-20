@@ -5,12 +5,12 @@ import CustomIcon from "./CustomIcon";
 import Spacer from "./Spacer";
 
 export default (props) => {
-    let {children} = props;
+    let {children, style} = props;
   return (
     <div>
       <InputBase
-        style={{ fontSize: 30 }}
-        placeholder="Naked input"
+        style={style}
+        placeholder="Start typing what is in your mind Christopher"
         inputProps={{ "aria-label": "naked" }}
         fullWidth
         multiline

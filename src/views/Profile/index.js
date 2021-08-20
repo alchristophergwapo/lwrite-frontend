@@ -1,7 +1,6 @@
-import { Container } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
-import { DefaultProfileCard, Image, Text } from "../../components";
+import { DefaultProfileCard } from "../../components";
 import { Colors } from "../../constants";
 
 export default (props) => {
@@ -16,9 +15,16 @@ export default (props) => {
             title: "Cover Photo",
           }}
           contents={[
-            { text: "Christopher Alonzo", variant: "h3", component: "h2" },
+            {
+              text: "Christopher Alonzo",
+              variant: "h4",
+              component: "h3",
+              center: true,
+            },
           ]}
-          profilePicture={"https://images.unsplash.com/photo-1510771463146-e89e6e86560e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"}
+          profilePicture={
+            "https://images.unsplash.com/photo-1510771463146-e89e6e86560e?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHByb2ZpbGUlMjBwaWN0dXJlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+          }
         />
       </div>
       <div>Profile</div>

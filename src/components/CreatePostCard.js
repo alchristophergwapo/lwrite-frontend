@@ -1,4 +1,10 @@
-import { CardContent, CardHeader, IconButton } from "@material-ui/core";
+import {
+  Button,
+  CardActions,
+  CardContent,
+  CardHeader,
+  IconButton,
+} from "@material-ui/core";
 import { CameraEnhance, PhotoRounded } from "@material-ui/icons";
 import React from "react";
 import CustomAvatar from "./CustomAvatar";
@@ -23,18 +29,29 @@ export default (props) => {
       />
       <CardContent>
         <Input
+        style={{ fontSize: 30 }}
           children={
             <div>
               <IconButton>
                 <CustomIcon md icon={PhotoRounded} />
               </IconButton>
               <IconButton>
-                  <CustomIcon md icon={CameraEnhance} />
+                <CustomIcon md icon={CameraEnhance} />
               </IconButton>
             </div>
           }
         />
       </CardContent>
+      <CardActions>
+        <Button
+          variant="contained"
+          fullWidth
+          size="large"
+          color="primary"
+        >
+          <Text variant="h5" text="Post" />
+        </Button>
+      </CardActions>
     </div>
   );
 };

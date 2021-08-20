@@ -5,6 +5,7 @@ import {
   Route,
   useLocation,
   useHistory,
+  Redirect,
 } from "react-router-dom";
 import { DefaultAppBar } from "../components";
 import routes from "./routes";
@@ -23,6 +24,9 @@ function RouteSwitch() {
 
   return (
     <Switch location={location}>
+      <Route exact path="/">
+        <Redirect to="/login" />
+      </Route>
       {routes.map(({ exact, path, component: Component, options }) => {
         return (
           <Route

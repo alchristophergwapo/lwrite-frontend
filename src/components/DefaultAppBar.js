@@ -18,6 +18,7 @@ import { ListItemIcon, ListItemText } from "@material-ui/core";
 import CustomIcon from "./CustomIcon";
 import { AccountCircleSharp, ExitToApp } from "@material-ui/icons";
 import Text from "./Text";
+import NavigationAction from "../navigation/NavigationAction";
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -118,9 +119,9 @@ export default (props) => {
   };
 
   const logout = () => {
-    sessionStorage.removeItem('session');
-    navigation.push('/login');
-  }
+    sessionStorage.removeItem("session");
+    navigation.push("/login");
+  };
 
   const menuId = "primary-search-account-menu";
   const renderMenu = (
@@ -133,17 +134,17 @@ export default (props) => {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={() =>navigate("/user/profile")}>
+      <MenuItem onClick={() => navigate("/user/profile")}>
         <ListItemIcon>
           <CustomIcon rg icon={AccountCircleSharp} />
         </ListItemIcon>
         <ListItemText primary={<Text text={"Profile"} />} />
       </MenuItem>
       <MenuItem onClick={logout}>
-      <ListItemIcon>
+        <ListItemIcon>
           <CustomIcon rg icon={ExitToApp} />
         </ListItemIcon>
-        <ListItemText primary={<Text text={"Logout"} />}  />
+        <ListItemText primary={<Text text={"Logout"} />} />
       </MenuItem>
     </Menu>
   );
@@ -193,9 +194,13 @@ export default (props) => {
     <div className={classes.grow}>
       <AppBar position="fixed">
         <Toolbar>
-          <Typography className={classes.title} variant="h4" noWrap>
-            LWrite
-          </Typography>
+          <NavigationAction
+            isText={true}
+            route="/home"
+            text={
+              <Text text="LWrite" variant="h4" style={{ color: "white" }} />
+            }
+          />
           <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -209,9 +214,7 @@ export default (props) => {
               inputProps={{ "aria-label": "search" }}
             />
           </div>
-          <div>
-
-          </div>
+          <div></div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
             <IconButton aria-label="show 4 new mails" color="inherit">
